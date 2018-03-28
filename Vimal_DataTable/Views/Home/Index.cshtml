@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<link href="~/Content/plugins/DataTable/datatables.min.css" rel="stylesheet" />
+<link href="~/Content/plugins/DataTable/datatables.bootstrap.css" rel="stylesheet" />
+<table id="example" class="display table table-striped table-bordered table-hover order-column"></table>
+<table id="example1" class="display table table-striped table-bordered table-hover order-column"></table>
+
+
+@section scripts{
+    <script src="~/Content/plugins/DataTable/datatables.min.js"></script>
+    <script src="~/Content/plugins/DataTable/DataTableCommon.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var columns = [
+                { "title": "Country Name", "data": "CountryName" }
+            ];
+            $('#example').createGrid({
+                Columns: columns,
+                Mode: 'CountryMaster',
+                SortColumn: '0',
+                SortOrder: 'desc',
+                OnAdd: function () {
+                    loaderstart();
+                    var url = '@Url.Action("ManageBank", "Bank", new { Area = "Admin" })';
+                    OpenPopup('myModal', 'myModalContent', url, 'ModalForm');
+                    return false;
+                }
+            });
+             var columns1 = [
+                 { "title": "Currency Name", "data": "CurrencyName" }
+            ];
+            $('#example1').createGrid({
+                Columns: columns1,
+                Mode: 'CurrencyMaster',
+                SortColumn: '0',
+                SortOrder: 'desc',
+                OnAdd: function () {
+                    loaderstart();
+                    var url = '@Url.Action("ManageBank", "Bank", new { Area = "Admin" })';
+                    OpenPopup('myModal', 'myModalContent', url, 'ModalForm');
+                    return false;
+                }
+             });
+        });
+    </script>
+}
+
