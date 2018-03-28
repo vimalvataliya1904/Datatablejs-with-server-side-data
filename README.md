@@ -11,11 +11,11 @@
 	
 # How to use backend?
 
-1) you have to configure your params in .\Models\GridData.cs file:
+1) you have to configure your params in .\Models\ColumnConfig.cs file:
 
 	-Following params are there in that file in each case:
 	
-		1) type= to identify the query
+		1) mode= to identify the query
 		2) ColumnsName= columns name (* is also allowed)
 		3) PageNumber=page number(int)
 		4) RecordPerPage= how many records you want to get per page from sql server

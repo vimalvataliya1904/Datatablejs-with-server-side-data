@@ -146,10 +146,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ColumnConfig.cs" />
     <Compile Include="Models\Common.cs" />
     <Compile Include="Models\dalc.cs" />
-    <Compile Include="Models\GridData.cs" />
     <Compile Include="Models\GridFunctions.cs" />
+    <Compile Include="Models\GridParams.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

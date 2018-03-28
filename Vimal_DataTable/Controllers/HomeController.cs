@@ -19,8 +19,8 @@ namespace Vimal_DataTable.Controllers
         public string GetGridData()
         {
             string mode = Convert.ToString(Request.Form["mode"]);
-            GridData og = new GridData(mode);
-            return og.JsonData;
+            ColumnConfig columnConfig = new ColumnConfig(mode);
+            return columnConfig.gridParams.GetData();
         }
     }
 }

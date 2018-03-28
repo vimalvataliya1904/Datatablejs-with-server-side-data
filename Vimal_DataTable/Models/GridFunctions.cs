@@ -100,7 +100,7 @@ namespace Vimal_DataTable.Models
                 return 10;
         }
 
-        public DataTable GetDataTable(GridData oGrid)
+        public DataTable GetDataTable(GridParams oGrid)
         {
             //GridData og = new GridData(mode);
             SqlParameter[] para = new SqlParameter[7];
@@ -115,13 +115,13 @@ namespace Vimal_DataTable.Models
             return dt;
         }
 
-        public string GetJson(GridData oGrid)
+        public string GetJson(GridParams oGrid)
         {
             DataTable dt = GetDataTable(oGrid);
             return dt.GetJsonForDataTableJS();
         }
 
-        public void Export(GridData oGrid)
+        public void Export(GridParams oGrid)
         {
             DataTable dt = GetDataTable(oGrid);
             oGrid.ExportedColumns = Convert.ToString(HttpContext.Current.Request.Form["Columns"]).Replace("null,", "");
@@ -165,13 +165,5 @@ namespace Vimal_DataTable.Models
             else
                 dt.ExportToExcel(oGrid.ExportedFileName);
         }
-    }
-
-    public class Gdata<T>
-    {
-        public List<T> data { get; set; }
-        public string draw { get; set; }
-        public string recordsTotal { get; set; }
-        public string recordsFiltered { get; set; }
     }
 }

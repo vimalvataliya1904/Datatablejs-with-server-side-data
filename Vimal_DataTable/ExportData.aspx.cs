@@ -21,7 +21,8 @@ namespace Vimal_DataTable
                     try
                     {
                         string mode = Convert.ToString(Request.Form["mode"]);
-                        GridData og = new GridData(mode, "", true);
+                        ColumnConfig columnConfig = new ColumnConfig(mode);
+                        columnConfig.gridParams.ExportData();
                     }
                     catch (Exception ex)
                     {
